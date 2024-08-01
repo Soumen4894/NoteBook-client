@@ -83,7 +83,7 @@ const Notes = (props) => {
           <div className='container mx-2'>
           {notes.length===0 && 'No notes to display'}
           </div>
-          {notes.map((note) => {
+          {notes.products.map((note) => {
             return <NoteItem key={note._id} updateNote={updateNote} showAlert= {props.showAlert} note={note} />
           })}
           {/* {Object.keys(notes).forEach((note) => {
