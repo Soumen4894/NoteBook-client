@@ -24,7 +24,7 @@ const Notes = (props) => {
   const updateNote = (currentNote) => {
     ref.current.click();
     setNote({ id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag });
-    
+
 
   }
 
@@ -41,7 +41,7 @@ const Notes = (props) => {
 
   return (
     <>
-      <AddNote showAlert = {props.showAlert}/>
+      <AddNote showAlert={props.showAlert} />
       <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Launch demo modal
       </button>
@@ -81,14 +81,25 @@ const Notes = (props) => {
         <div className="row my-3">
           <h2>Your Notes</h2>
           <div className='container mx-2'>
-          {notes.length===0 && 'No notes to display'}
+            {notes.length === 0 && 'No notes to display'}
           </div>
-          {notes.map((note) => {
+          {/* {notes.map((note) => {
             return <NoteItem key={note._id} updateNote={updateNote} showAlert= {props.showAlert} note={note} />
-          })}
+          })} */}
+          {Array.isArray(notes) && notes.length > 0 ? (
+            notes.map((note) => {
+              return <NoteItem key={note._id} updateNote={updateNote} showAlert={props.showAlert} note={note} />;
+            })
+          ) : (
+            <div className="no-notes-message">
+              <h2>No Notes Found</h2>
+              <p>Please add some notes to get started.</p>
+            </div>
+          )}
           {/* {Object.keys(notes).forEach((note) => {
             return <NoteItem key={note._id} updateNote={updateNote} showAlert= {props.showAlert} note={note} />
           })}; */}
+
         </div>
       </div>
     </>
