@@ -83,10 +83,10 @@ const Notes = (props) => {
           <div className='container mx-2'>
             {notes.length === 0 && 'No notes to display'}
           </div>
-          {/* {notes.map((note) => {
+          {notes?.map((note) => {
             return <NoteItem key={note._id} updateNote={updateNote} showAlert= {props.showAlert} note={note} />
-          })} */}
-          {Array.isArray(notes) && notes.length > 0 ? (
+          })}
+          {/* {Array.isArray(notes) && notes.length > 0 ? (
             notes.map((note) => {
               return <NoteItem key={note._id} updateNote={updateNote} showAlert={props.showAlert} note={note} />;
             })
@@ -95,7 +95,7 @@ const Notes = (props) => {
               <h2>No Notes Found</h2>
               <p>Please add some notes to get started.</p>
             </div>
-          )}
+          )} */}
           {/* {Object.keys(notes).forEach((note) => {
             return <NoteItem key={note._id} updateNote={updateNote} showAlert= {props.showAlert} note={note} />
           })}; */}
