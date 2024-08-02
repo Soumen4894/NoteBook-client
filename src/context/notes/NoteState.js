@@ -43,7 +43,7 @@ const NoteState = (props) => {
     });
     const note = await response.json()
     // setNotes(notes.concat(note))
-    setNotes((prevNotes) => (Array.isArray(prevNotes) ? prevNotes.concat(note) : [note]));
+    setNotes(() => (Array.isArray(notes) ? notes.concat(note) : [note]));
 
   }
   //Delete Note
