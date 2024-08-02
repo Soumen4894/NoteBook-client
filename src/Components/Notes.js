@@ -96,9 +96,14 @@ const Notes = (props) => {
               <p>Please add some notes to get started.</p>
             </div>
           )} */}
-          {(notes || []).map((note) => (
-            <NoteItem key={note._id} updateNote={updateNote} showAlert={props.showAlert} note={note} />
-          ))}
+          {Array.isArray(notes) ? (
+            notes.map((note) => (
+              <NoteItem key={note._id} updateNote={updateNote} showAlert={props.showAlert} note={note} />
+            ))
+          ) : (
+            // Optionally, render a fallback or log an error message
+            console.error("Expected notes to be an array, but got:", notes)
+          )}
 
 
         </div>
